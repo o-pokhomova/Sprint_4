@@ -2,6 +2,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import steps.LogoSamokatSteps;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -10,7 +11,7 @@ public class LogoSamokatTest extends BaseTest {
         super(browser);
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{0}")
     public static Object[][] getBrowserSelection() {
         return new Object[][]{
                 {"chrome"},
@@ -27,4 +28,3 @@ public class LogoSamokatTest extends BaseTest {
         assertEquals("Переход на главную страницу сайта не выполнен", URL, driver.getCurrentUrl());
     }
 }
-

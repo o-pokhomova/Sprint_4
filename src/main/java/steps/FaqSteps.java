@@ -1,28 +1,27 @@
 package steps;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import page.MainPage;
+
 import java.util.List;
 
 public class FaqSteps {
     private final WebDriverWait wait;
+    private final MainPage mainPage;
 
-    public FaqSteps(WebDriverWait wait) {
+    public FaqSteps(WebDriverWait wait, MainPage mainPage) {
         this.wait = wait;
+        this.mainPage = mainPage;
     }
 
-    public QuestionAndAnswer getQuestionAndAnswer(WebElement button) {
-        String actualQuestion = button.getText().trim();
-
+    public String getAnswer(WebElement button) {
         // Кликаем по стрелочке
         wait.until(ExpectedConditions.elementToBeClickable(button)).click();
 
         // Ждём появления всех блоков с ответом
-        List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-                By.xpath("//div[@class='accordion__panel']/p")
-        ));
+        List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(mainPage.getAnswerPanel()));
         // answer пока еще ничего не нашли
         WebElement answer = null;
         // перебираем, пока не найдем видимый.
@@ -35,6 +34,6 @@ public class FaqSteps {
         if (answer == null) {
             return null;
         }
-        return new QuestionAndAnswer(actualQuestion, answer.getText().trim());
+        return answer.getText().trim();
     }
 }

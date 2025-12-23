@@ -18,13 +18,13 @@ public class OrderMakePage {
     private By metroField = By.xpath(".//input[@placeholder='* Станция метро']");
 
     private By addressField = By.cssSelector("input[placeholder=\"* Адрес: куда привезти заказ\"]");
-    private By blackCheck = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[3]/label[1]/input");
-    private By greyCheck = By.xpath("//*[@id='grey']");
+    private By blackCheck = By.xpath("//label[text()='чёрный жемчуг']/input[@type='checkbox']");
+    private By greyCheck = By.xpath("//label[text()='серая безысходность']/input[@type='checkbox']");
     private By lastNameField = By.cssSelector("input[placeholder=\"* Фамилия\"]");
     private By firstNameField = By.cssSelector("input[placeholder=\"* Имя\"]");
     private By orderBtn = By.xpath("//div[@class=\"Order_Buttons__1xGrp\"]/button[@class=\"Button_Button__ra12g Button_Middle__1CSJM\" and text()=\"Заказать\"]");
     private By controlElement = By.xpath("//div[text()='Заказ оформлен']");
-    private By allStation = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[4]/div/div[2]/ul/li");
+    private By allStation = By.xpath("//div[@class=\"select-search__select\"]//li");
 
     public OrderMakePage(WebDriver driver) {
         this.driver = driver;

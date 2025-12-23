@@ -12,11 +12,6 @@ public class LogoYandexSteps {
     }
 
     public void checkLogoYandex() {
-        mainPage.clickUpOrderButton();
         mainPage.clickLogoYandex();
     }
-
-
 }
-
-

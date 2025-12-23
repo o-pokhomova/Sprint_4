@@ -14,7 +14,6 @@ import java.time.Duration;
 public class BaseTest {
     protected WebDriverWait wait;
     protected WebDriver driver;
-    private By acceptBtn = By.id("rcc-confirm-button");
     protected String URL = "https://qa-scooter.praktikum-services.ru/";
     private final String browser;
 
@@ -58,6 +57,6 @@ public class BaseTest {
     public void openPage() {
         driver.get(URL);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.findElement(acceptBtn).click();
+        driver.findElement(mainPage.getAcceptBtn()).click();
     }
 }

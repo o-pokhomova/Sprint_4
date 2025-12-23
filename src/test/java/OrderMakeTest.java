@@ -35,7 +35,7 @@ public class OrderMakeTest extends BaseTest {
         this.option = option;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{0}: {1} {2} {3} {4} {5} {6} {7} {8}")
     public static Object[][] getBrowserSelection() {
         return new Object[][]{
                 {"chrome", "Ольга", "Похомова", "Летчика Бабушкина 47", 3, "+70005553399", "16.12.2021", 3, "серая безысходность"},
