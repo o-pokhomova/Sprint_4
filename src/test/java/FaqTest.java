@@ -55,7 +55,7 @@ public class FaqTest extends BaseTest {
 
     @Before
     public void setUp() {
-        faqSteps = new FaqSteps(wait, mainPage);
+        faqSteps = new FaqSteps(mainPage);
     }
 
     @Test

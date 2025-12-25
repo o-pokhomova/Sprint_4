@@ -1,17 +1,20 @@
 package steps;
 
 import page.MainPage;
-import org.openqa.selenium.WebDriver;
 
 public class LogoYandexSteps {
 
     private MainPage mainPage;
 
-    public LogoYandexSteps(WebDriver driver) {
-        this.mainPage = new MainPage(driver);
+    public LogoYandexSteps(MainPage mainPage) {
+        this.mainPage = mainPage;
     }
 
     public void checkLogoYandex() {
         mainPage.clickLogoYandex();
+    }
+
+    public String getUrlOpenedInSecondTab() {
+        return mainPage.getUrlOpenedInSecondTab();
     }
 }

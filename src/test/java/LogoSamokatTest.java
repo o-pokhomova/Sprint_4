@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import page.MainPage;
 import steps.LogoSamokatSteps;
 
 import static org.junit.Assert.assertEquals;
@@ -21,10 +22,13 @@ public class LogoSamokatTest extends BaseTest {
 
     @Test
     public void successfulClickLogo() {
-        LogoSamokatSteps logoSamokatSteps = new LogoSamokatSteps(driver);
+        LogoSamokatSteps logoSamokatSteps = new LogoSamokatSteps(mainPage);
 
         openPage();
-        logoSamokatSteps.checkLogoSamokat();
-        assertEquals("Переход на главную страницу сайта не выполнен", URL, driver.getCurrentUrl());
+        assertEquals(
+                "Переход на главную страницу сайта не выполнен",
+                MainPage.URL,
+                logoSamokatSteps.checkLogoSamokat()
+        );
     }
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 
 public class OrderMakePage {
@@ -22,7 +23,7 @@ public class OrderMakePage {
     private By greyCheck = By.xpath("//label[text()='серая безысходность']/input[@type='checkbox']");
     private By lastNameField = By.cssSelector("input[placeholder=\"* Фамилия\"]");
     private By firstNameField = By.cssSelector("input[placeholder=\"* Имя\"]");
-    private By orderBtn = By.xpath("//div[@class=\"Order_Buttons__1xGrp\"]/button[@class=\"Button_Button__ra12g Button_Middle__1CSJM\" and text()=\"Заказать\"]");
+    private By orderBtn = By.xpath(".//button[contains(@class, 'Button_Middle__1CSJM') and text()='Заказать']");
     private By controlElement = By.xpath("//div[text()='Заказ оформлен']");
     private By allStation = By.xpath("//div[@class=\"select-search__select\"]//li");
 

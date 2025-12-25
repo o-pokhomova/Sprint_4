@@ -1,7 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,9 +11,7 @@ import page.OrderMakePage;
 import java.time.Duration;
 
 public class BaseTest {
-    protected WebDriverWait wait;
-    protected WebDriver driver;
-    protected String URL = "https://qa-scooter.praktikum-services.ru/";
+    private WebDriver driver;
     private final String browser;
 
     MainPage mainPage;
@@ -31,9 +28,9 @@ public class BaseTest {
         } else if (browser.equals("firefox")) {
             startBrowserFirefox();
         }
-        mainPage = new MainPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        mainPage = new MainPage(driver, wait);
         orderMakePage = new OrderMakePage(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void startBrowserChrome() {
@@ -55,8 +52,7 @@ public class BaseTest {
     }
 
     public void openPage() {
-        driver.get(URL);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.findElement(mainPage.getAcceptBtn()).click();
+        mainPage.open();
+        mainPage.acceptCookies();
     }
 }

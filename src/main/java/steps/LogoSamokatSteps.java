@@ -1,19 +1,19 @@
 package steps;
 
 import page.MainPage;
-import org.openqa.selenium.WebDriver;
 
 public class LogoSamokatSteps {
 
     private MainPage mainPage;
 
-    public LogoSamokatSteps(WebDriver driver) {
-        this.mainPage = new MainPage(driver);
+    public LogoSamokatSteps(MainPage mainPage) {
+        this.mainPage = mainPage;
     }
 
-    public void checkLogoSamokat() {
+    public String checkLogoSamokat() {
         mainPage.clickUpOrderButton();
         mainPage.clickLogoSamokat();
+        return mainPage.getCurrentUrl();
     }
 }
 
